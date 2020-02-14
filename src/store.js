@@ -139,17 +139,20 @@ export default new Vuex.Store({
             .then(res => {
                 console.log(res)
                 const data = res.data
-                const users = []
-                for(let key in data){
-                    const user = data[key]
-                    user.id = key
-                    users.push(user)
-                }
-                console.log(users)
+                let user = {}
                 const uEmail = localStorage.getItem('userEmail')
-                const userIndex = users.indexOf(uEmail)
-                console.log("userIndex")
-                commit('storeUser', users[1])
+                for(let key in data){
+                    const person = data[key]
+                    // user.id = key
+                    // users.push(user)
+                    if(uEmail == person.email){
+                        user = person
+                    }
+                }
+                console.log(user)
+                // const userIndex = users.email.indexOf(uEmail)
+                // console.log(userIndex)
+                commit('storeUser', user)
             }).catch(error =>{
                 console.log(error);
             })

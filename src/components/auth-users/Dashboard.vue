@@ -43,10 +43,10 @@
                                 max-width="300"
                             >
                                 <v-card-title>
-                                    <span class="title font-weight-light">{{post.title}}</span>
+                                    <p class="title font-weight-light">{{post.title}}</p> <br /> 
                                     <v-rating 
                                         v-model="post.rating" 
-                                        size="20"
+                                        size="18"
                                         background-color="blue lighten-3"
                                         color="blue"
                                     ></v-rating>
