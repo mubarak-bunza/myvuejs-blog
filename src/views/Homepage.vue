@@ -8,8 +8,8 @@
 
 <script>
 // @ is an alias to /src
-import Header from '@/components/users/Header.vue'
-import Contents from '@/components/users/Contents.vue'
+import Header from '@/components/auth-users/Header.vue'
+import Contents from '@/components/auth-users/Contents.vue'
 
 export default {
   name: 'Home',
