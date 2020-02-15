@@ -19,7 +19,7 @@
                         <input v-model="regForm.profession" type="text" class="form-control" id="profession">
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="password">Password</label>
+                        <label for="password">Password <small>(must be greater than 6 chars)</small></label>
                         <input v-model="regForm.password" type="password" class="form-control" id="password">
                     </div>
                 </div>
