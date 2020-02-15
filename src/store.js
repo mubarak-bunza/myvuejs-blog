@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from './axios-auth'
 import globalAxios from 'axios'
+import Swal from 'sweetalert2'
 
 import router from './router/index'
 
@@ -12,7 +13,8 @@ export default new Vuex.Store({
         idToken: null,
         userId: null,
         user: null,
-        articles: null
+        articles: null,
+        notificationData: null
     },
     getters: {
         user(state){
@@ -40,9 +42,29 @@ export default new Vuex.Store({
         },
         fetchArticles(state, articlesData){
             state.articles = articlesData
+        },
+        setNotificationData(state, notificationData){
+            state.notificationData = notificationData
         }
     },
     actions: {
+        notification(){
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            }) 
+            Toast.fire({
+                icon: this.state.notificationData.icon,
+                title: this.state.notificationData.title
+            })
+        },
         setLogoutTimer({dispatch}, expirationTime){
             setTimeout(()=>{
                 dispatch('signout')
@@ -70,6 +92,12 @@ export default new Vuex.Store({
                 router.replace('/signin')
             }).catch(error => {
                 console.log(error);
+                let notificationData = {
+                    icon: 'error',
+                    title: 'Regitration Failed, please provide a valid email'
+                }
+                commit('setNotificationData', notificationData)
+                dispatch('notification');
             });
         },
         signin ({commit, dispatch}, payload){
@@ -94,6 +122,12 @@ export default new Vuex.Store({
                 dispatch('setLogoutTimer', res.data.expiresIn)
             }).catch(error => {
                 console.log(error);
+                let notificationData = {
+                    icon: 'error',
+                    title: 'Login Failed'
+                }
+                commit('setNotificationData', notificationData)
+                dispatch('notification');
             });
         },
         tyrAutoLogging({commit}){
