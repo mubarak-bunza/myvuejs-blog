@@ -165,6 +165,7 @@ export default new Vuex.Store({
             .then(res => {
                 console.log(res)
                 // location.reload();
+                router.replace('/homepage')
             }).catch(error => {
                 console.log(error)
             });
@@ -199,6 +200,7 @@ export default new Vuex.Store({
             .then(res => {
                 console.log(res)
                 // location.reload();
+                router.replace('/homepage')
             }).catch(error =>{
                 console.log(error);
             }) 
@@ -211,6 +213,7 @@ export default new Vuex.Store({
             globalAxios.delete(`https://myvuejs-blog.firebaseio.com/posts/${id}.json`+'?auth='+state.idToken)
             .then(res => {
             //    location.reload();
+            router.replace('/homepage')
             }).catch(error =>{
                 console.log(error);
             }) 
