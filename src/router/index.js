@@ -35,13 +35,13 @@ const routes = [
     // meta: {
     //   requiresAuth: true
     // }
-    beforeEach (to, from, next){
-      if(store.state.idToken){
-        next();
-      }else{
-        next('/signin')
-      }
-    }
+    // beforeEach (to, from, next){
+    //   if(store.state.idToken){
+    //     next();
+    //   }else{
+    //     next('/signin')
+    //   }
+    // }
   },
   {
     path: '/all-articles',
@@ -50,13 +50,13 @@ const routes = [
     // meta: {
     //   requiresAuth: true
     // }
-    beforeEach (to, from, next){
-      if(store.state.idToken){
-        next();
-      }else{
-        next('/signin')
-      }
-    }
+    // beforeEach (to, from, next){
+    //   if(store.state.idToken){
+    //     next();
+    //   }else{
+    //     next('/signin')
+    //   }
+    // }
   }
 ]
 
