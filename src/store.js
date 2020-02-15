@@ -164,6 +164,7 @@ export default new Vuex.Store({
             globalAxios.post('https://myvuejs-blog.firebaseio.com/posts.json'+'?auth='+state.idToken, userData)
             .then(res => {
                 console.log(res)
+                location.reload();
             }).catch(error => {
                 console.log(error)
             });
@@ -187,6 +188,32 @@ export default new Vuex.Store({
             }).catch(error =>{
                 console.log(error);
             })
+        },
+        updateArticle({state},payload){
+            if(!state.idToken){
+                return
+            }
+            const id = payload.id
+            console.log(payload)
+            globalAxios.put(`https://myvuejs-blog.firebaseio.com/posts/${id}.json`+'?auth='+state.idToken, payload)
+            .then(res => {
+                console.log(res)
+                location.reload();
+            }).catch(error =>{
+                console.log(error);
+            }) 
+        },
+        deleteArticle({state},payload){
+            if(!state.idToken){
+                return
+            }
+            const id = payload
+            globalAxios.delete(`https://myvuejs-blog.firebaseio.com/posts/${id}.json`+'?auth='+state.idToken)
+            .then(res => {
+               location.reload();
+            }).catch(error =>{
+                console.log(error);
+            }) 
         }
     }
 })

@@ -7,6 +7,7 @@ import Home from '../views/Home.vue'
 import Signup from '../views/Signup.vue'
 import Signin from '../views/Signin.vue'
 import Homepage from '../views/Homepage.vue'
+import Articles from '../views/Articles.vue'
 // import { Store } from 'vuex'
 
 Vue.use(VueRouter)
@@ -31,6 +32,21 @@ const routes = [
     path: '/homepage',
     name: 'Homepage',
     component: Homepage,
+    // meta: {
+    //   requiresAuth: true
+    // }
+    beforeEach (to, from, next){
+      if(store.state.idToken){
+        next();
+      }else{
+        next('/signin')
+      }
+    }
+  },
+  {
+    path: '/all-articles',
+    name: 'Articles',
+    component: Articles,
     // meta: {
     //   requiresAuth: true
     // }

@@ -6,41 +6,12 @@
         <div class="col-md-9 ">
             <div class="container">
                 <div class="row">
-                    <div class="col-md">
-                        <div class="jumbotron mt-n3">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <form>
-                                        <v-col cols="12 py-0" md="12">
-                                            <v-text-field 
-                                                label="Title of the Article" 
-                                                v-model="articleData.title"
-                                            ></v-text-field>
-                                        </v-col>
-                                        <v-col cols="12 py-0" md="12">
-                                            <v-textarea
-                                            v-model="articleData.article"
-                                            label="Article"
-                                            counter="500"
-                                            ></v-textarea>
-                                        </v-col>
-                                        <v-col cols="12 py-0" md="12">
-                                            <v-btn v-if="!editStatus" @click.prevent="postArticle" type="submit" class="ma-2" outlined>Post</v-btn>
-                                            <v-btn v-else @click.prevent="updateArticle" type="submit" class="ma-2" outlined>Update</v-btn>
-                                        </v-col>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md " v-for="(post, index) in posts" :key="index">
-                        <template v-if="post.author == user.name">
+                    <div class="col-md" v-for="(post, index) in posts" :key="index">
+                        <template>
                             <v-card
                                 class="mx-auto"
                                 color=""
-                                width="300"
+                                max-width="300"
                             >
                                 <v-card-title>
                                     <p class="title font-weight-light">{{post.title}}</p> 
@@ -50,7 +21,7 @@
                                         size="18"
                                         background-color="blue lighten-3"
                                         color="blue"
-                                        class=""
+                                        class="p-0"
                                     ></v-rating>
                                 </v-card-title>
 
@@ -58,8 +29,8 @@
                                     {{post.article}}
                                     <br />
                                     <br />
-                                    <a class="btn" @click="editArticle(index)">Edit</a>
-                                    <a class="btn" @click="deleteArticle(post.id)">Delete</a>
+                                    <!-- <a class="btn" @click="editArticle(post.id)">Edit</a>
+                                    <a class="btn" @click="deleteArticle(post.id)">Delete</a> -->
                                 </v-card-text>
                                     <hr>
                                     <!-- <v-divider :inset="true"></v-divider> -->
@@ -92,8 +63,6 @@
                         </template>
                     </div>
                     
-                    <!-- {{user}} -->
-                    <!-- {{posts}} -->
                 </div>
             </div>           
         </div>
@@ -111,13 +80,7 @@
         },
         data(){
             return {
-                updateId: null,
-                editStatus: false,
-                articleData: {
-                    title: null,
-                    article: null,
-                    rating: 0,
-                }
+               
             }
         },
         computed: {
@@ -133,35 +96,7 @@
             this.$store.dispatch('fetchArticles')
         },
         methods: {
-             postArticle () {
-            //     const createdAt = new Date()
-            //     db.collection('blog-posts').doc('post').add({ title, article })
-            //     // Clear values
-            //     this.title = ''
-            //     this.article = ''
-               
-                this.articleData.userId = this.user.id
-                this.articleData.author = this.user.name
-                this.$store.dispatch('storeArticle', this.articleData)
-                this.title = null
-                this.article = null
-                
-            },
-            editArticle(index){
-                this.editStatus = true
-                // this.articleData.title = this.posts[index].title 
-                // this.articleData.article = this.posts[index].article
-                // this.updateId = this.posts[index].id
-                this.articleData = this.posts[index]
-            },
-            updateArticle(){
-                this.articleData.userId = this.user.id
-                this.articleData.author = this.user.name
-                this.$store.dispatch('updateArticle', this.articleData)
-            },
-            deleteArticle(id){
-                this.$store.dispatch('deleteArticle', id)
-            }
+          
         }
     }
 </script>

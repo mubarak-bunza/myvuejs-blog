@@ -3,11 +3,15 @@
         <div class="card-header">
             <p>Welcome {{user.name}}!</p>
         </div>
-        <!-- <ul class="list-group list-group-flush">
-            <li class="list-group-item">Home</li>
-            <li class="list-group-item">Profile</li>
-            <li class="list-group-item">Article</li>
-        </ul> -->
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <router-link to="/homepage">Home</router-link>
+            </li>
+            <!-- <li class="list-group-item">Profile</li> -->
+            <li class="list-group-item">
+                <router-link to="/all-articles">All Articles</router-link>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -25,5 +29,7 @@
 </script>
 
 <style>
-
+    .router-link-active {
+        color: brown
+    }
 </style>
