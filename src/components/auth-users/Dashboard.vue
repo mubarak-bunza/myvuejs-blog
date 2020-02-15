@@ -35,15 +35,15 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md " v-for="(post, index) in posts" :key="index">
+                    <div class="col-md-4 " v-for="(post, index) in posts" :key="index">
                         <template v-if="post.author == user.name">
                             <v-card
                                 class="mx-auto"
                                 color=""
-                                width="300"
+                                width="100%"
                             >
                                 <v-card-title>
-                                    <p class="title font-weight-light">{{post.title}}</p> 
+                                    <p class="title font-weight-light">{{post.title}} </p> 
                                     
                                     <v-rating 
                                         v-model="post.rating" 

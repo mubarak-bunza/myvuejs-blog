@@ -31,7 +31,7 @@ const routes = [
   {
     path: '/homepage',
     name: 'Homepage',
-    component: Homepage,
+    component: Homepage
     // meta: {
     //   requiresAuth: true
     // }
@@ -46,7 +46,7 @@ const routes = [
   {
     path: '/all-articles',
     name: 'Articles',
-    component: Articles,
+    component: Articles
     // meta: {
     //   requiresAuth: true
     // }
