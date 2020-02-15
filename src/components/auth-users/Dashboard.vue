@@ -92,8 +92,6 @@
                         </template>
                     </div>
                     
-                    <!-- {{user}} -->
-                    <!-- {{posts}} -->
                 </div>
             </div>           
         </div>

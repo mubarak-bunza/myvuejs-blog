@@ -97,7 +97,7 @@
                                         max-width="400"
                                     >
                                         <v-card-title>
-                                            <span class="title font-weight-light">Create a todo app using VueJs</span>
+                                            <span class="title font-weight-light">How use Bootstrap Efficiently</span>
                                             <v-rating 
                                                 v-model="rating" 
                                                 size="20"
@@ -121,7 +121,7 @@
                                                 </v-list-item-avatar>
 
                                                 <v-list-item-content>
-                                                    <v-list-item-title>Evan You</v-list-item-title>
+                                                    <v-list-item-title>Mark John</v-list-item-title>
                                                 </v-list-item-content>
 
                                                 <!-- <v-row
@@ -148,7 +148,7 @@
                                         max-width="400"
                                     >
                                         <v-card-title>
-                                            <span class="title font-weight-light">Create a todo app using VueJs</span>
+                                            <span class="title font-weight-light">Learn PHP CRUD App</span>
                                                     <v-rating 
                                                         v-model="rating" 
                                                         size="20"
@@ -176,7 +176,7 @@
                                                 </v-list-item-avatar>
 
                                                 <v-list-item-content>
-                                                    <v-list-item-title>Evan You</v-list-item-title>
+                                                    <v-list-item-title>Jason Startham</v-list-item-title>
                                                 </v-list-item-content>
 
                                                 <!-- <v-row
